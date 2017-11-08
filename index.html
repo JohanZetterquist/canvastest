@@ -24,23 +24,23 @@
                 ctx.fillText('Så här jobbar vi!', textX, textY, 300);
                 ctx.textAlign = 'start'; 
                 ctx.textBaseline = 'hanging'; 
-                if(textX<=95){
-                    textX+=5;
+                if(textX<=98){
+                    textX+=2;
                 }      
             }
 
             function animateImg(){
                 ctx.clearRect(0, 175, cW, 100);
                 ctx.drawImage(logga, 0, 0, logga.width, logga.height, imgX, imgY, logga.width, logga.height);
-                if(imgX>=175){
-                    imgX-=5;
+                if(imgX>=178){
+                    imgX-=2;
                 }
             }
             
-            setInterval(animateText, 10);
+            setInterval(animateText, 5);
 
             setTimeout(function() {
-                setInterval(animateImg, 10);
+                setInterval(animateImg, 5);
             }, 500);
             
         }
