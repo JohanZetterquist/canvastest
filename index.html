@@ -36,12 +36,23 @@
                     imgX-=2;
                 }
             }
-            
-            setInterval(animateText, 5);
 
-            setTimeout(function() {
-                setInterval(animateImg, 5);
-            }, 500);
+            function nextPart(){
+                ctx.clearRect(0, 0, cW, cH);
+                ctx.fillText('To be continued', 100, 150, 300)
+                ctx.textAlign = 'start'; 
+                ctx.textBaseline = 'hanging'; 
+            }
+            
+            var animateTextInterval = setInterval(animateText, 5);
+            var animateImgInterval = setInterval(animateImg, 5);
+          
+            setTimeout(function(){
+                clearInterval(animateTextInterval);
+                clearInterval(animateImgInterval);
+                nextPart();
+            }, 3000);
+
             
         }
         window.addEventListener('load', function(event) {
