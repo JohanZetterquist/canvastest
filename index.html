@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body{ margin:10px; background:#666; }
+        #my_canvas{ background:#17212a; border:#000 1px solid; }
+     </style>
+     
+     <script>
+        var logga = new Image();
+        logga.src ='LOGGABADEUR.png';
+
+        function initCanvas(){
+            var ctx = document.getElementById('my_canvas').getContext('2d');
+            var cW = ctx.canvas.width, cH = ctx.canvas.height;
+            var textX = -350, textY = 100;
+            var imgX = 700, imgY = 175;
+
+            function animateText(){
+
+                ctx.clearRect(0, 0, cW, 174);
+                ctx.fillStyle = '#f37816';
+                ctx.font = 'normal 56px Arial, sans-serif';
+                ctx.fillText('Så här jobbar vi!', textX, textY, 300);
+                ctx.textAlign = 'start'; 
+                ctx.textBaseline = 'hanging'; 
+                if(textX<=95){
+                    textX+=5;
+                }      
+            }
+
+            function animateImg(){
+                ctx.clearRect(0, 175, cW, 100);
+                ctx.drawImage(logga, 0, 0, logga.width, logga.height, imgX, imgY, logga.width, logga.height);
+                if(imgX>=175){
+                    imgX-=5;
+                }
+            }
+            
+            setInterval(animateText, 10);
+
+            setTimeout(function() {
+                setInterval(animateImg, 10);
+            }, 500);
+            
+        }
+        window.addEventListener('load', function(event) {
+            initCanvas();
+        });
+
+     </script>
+</head>
+
+<body>
+    <canvas id='my_canvas' width="500" height="350"></canvas>
+</body>
+</html>
